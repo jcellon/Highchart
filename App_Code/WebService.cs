@@ -32,14 +32,9 @@ public class WebService : System.Web.Services.WebService {
     public List<cityPopulation> getCityPopulation(List<string> pData)
     {
         List<cityPopulation> p = new List<cityPopulation>();
-
-        //using (SqlConnection cn = new SqlConnection(@"Data Source=localhost\sqlexpress;Initial Catalog=tb_city_population;Integrated Security=True")) //CTC
-        //using (SqlConnection cn = new SqlConnection(@"Data Source=(LOCAL)\SQLEXPRESS;Initial Catalog=PARAM.tuts;Integrated Security=True")) //Base
-        using (SqlConnection cn = new SqlConnection(@"Data Source=ELLON;Initial Catalog=StatePopulation;Integrated Security=True")) //LenovoDb
+        using (SqlConnection cn = new SqlConnection(@"Data Source=ELLON;Initial Catalog=StatePopulation;Integrated Security=True")) //LenoDb
         {
-            //string myQuery = "SELECT id_, city_name, population FROM  [tb_city_population].[dbo].[PARAM.tuts] WHERE  year_of = @year"; //CTC
-            //string myQuery = "SELECT id_, city_name, population FROM [PARAM.tuts].[dbo].[PARAM#tuts] WHERE  year_of = @year"; //Base   
-            string myQuery = "SELECT id_, city_name, population FROM [StatePopulation].[dbo].[StatePopulation$] WHERE year_of = @year"; //LenovoDb     
+            string myQuery = "SELECT id_, city_name, population FROM [StatePopulation].[dbo].[StatePopulation$] WHERE year_of = @year"; //LenoDb     
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = myQuery;
             cmd.CommandType = CommandType.Text;
